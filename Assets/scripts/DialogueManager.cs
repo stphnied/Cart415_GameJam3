@@ -119,6 +119,7 @@ public class DialogueManager : MonoBehaviour
                 case 2:
                     newFilePath = "Assets/Bad.txt";
                     break;
+                
                 // add more cases if you have additional choices
                 default:
                     break;

@@ -1,4 +1,4 @@
-How are you feeling today?
+How are you?
 Good
+Bad
 Fine
-Not so good
