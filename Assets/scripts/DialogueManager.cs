@@ -6,21 +6,15 @@ using System.IO;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI mainTextComponent;
-    public TextMeshProUGUI choicesTextComponent;
     public string[] lines;
     public float textSpeed;
     private int index;
-
-    public string[] choices;
-    public GameObject choicesPanel;
-
-    private int selectedChoiceIndex = -1;
     private string originalFilePath;
+    private bool originalDialogueShown = false;
 
     void Start()
     {
         mainTextComponent.text = string.Empty;
-        choicesTextComponent.text = string.Empty;
         originalFilePath = "Assets/dialogue.txt";  // setting the original file path
         ReadDialogueFile(originalFilePath);
         StartCoroutine(TypeLine());
@@ -28,27 +22,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (choicesPanel.activeSelf)
-        {
-            for (int i = 0; i < choices.Length; i++)
-            {
-                // check if the corresponding number key is pressed
-                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-                {
-                    selectedChoiceIndex = i;
-                    LogPlayerChoice();
-                }
-            }
-        }
-        else if (mainTextComponent.text == lines[index])
-        {
-            DisplayChoices();
-        }
-        else
-        {
-            StopAllCoroutines();
-            mainTextComponent.text = lines[index];
-        }
+        // Optionally, you can add logic here for player input or interaction if needed
     }
 
     void ReadDialogueFile(string filePath)
@@ -56,91 +30,25 @@ public class DialogueManager : MonoBehaviour
         string[] dialogueLines = File.ReadAllLines(filePath);
 
         // the first line of the file is the main dialogue
-        lines = new string[] { dialogueLines[0] };
-        choices = new string[dialogueLines.Length - 1];
-        for (int i = 1; i < dialogueLines.Length; i++)
-        {
-            choices[i - 1] = dialogueLines[i];
-        }
+        lines = dialogueLines;
     }
 
-    IEnumerator TypeLine()
+   IEnumerator TypeLine()
+{
+    // Clear the previous line before typing the new one
+    mainTextComponent.text = string.Empty;
+
+    foreach (char c in lines[index].ToCharArray())
     {
-        foreach (char c in lines[index].ToCharArray())
-        {
-            mainTextComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
-
-        yield return new WaitForSeconds(2f);
-
-        if (choices != null && choices.Length > 0)
-        {
-            DisplayChoices();
-        }
-        else
-        {
-            NextLine();
-        }
+        mainTextComponent.text += c;
+        yield return new WaitForSeconds(textSpeed);
     }
 
-    void DisplayChoices()
-    {
-        choicesPanel.SetActive(true);
-        choicesTextComponent.text = string.Empty;
+    yield return new WaitForSeconds(2f);
 
-        for (int i = 0; i < choices.Length; i++)
-        {
-            choicesTextComponent.text += $"\n{i + 1}. {choices[i]}";
-        }
+    NextLine();
+}
 
-        // method is not called multiple times
-        StopCoroutine("HideChoicesTextComponent");
-        StartCoroutine(HideChoicesTextComponent());
-    }
-
-    void LogPlayerChoice()
-    {
-        if (selectedChoiceIndex != -1 && selectedChoiceIndex < choices.Length)
-        {
-            Debug.Log($"Player chose: {choices[selectedChoiceIndex]}");
-
-    
-            string newFilePath = string.Empty;
-
-            switch (selectedChoiceIndex)
-            {
-                case 0:
-                    newFilePath = "Assets/Good.txt";
-                    break;
-                case 1:
-                    newFilePath = "Assets/Fine.txt";
-                    break;
-                case 2:
-                    newFilePath = "Assets/Bad.txt";
-                    break;
-                
-                // add more cases if you have additional choices
-                default:
-                    break;
-            }
-
-            if (!string.IsNullOrEmpty(newFilePath))
-            {
-                ReadDialogueFile(newFilePath);
-            }
-
-            choicesPanel.SetActive(false);
-            StartCoroutine(HideChoicesTextComponent());
-            mainTextComponent.gameObject.SetActive(true);
-        }
-    }
-
-    IEnumerator HideChoicesTextComponent()
-    {
-        yield return new WaitForSeconds(0.1f);
-        choicesTextComponent.gameObject.SetActive(false);
-    }
 
     void NextLine()
     {
@@ -152,12 +60,31 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            // Check if the original dialogue has been shown
+            if (!originalDialogueShown)
+            {
+                originalDialogueShown = true;
+                mainTextComponent.text = string.Empty; // Clear the text before showing the next set
+
+                // Show the next set of dialogues labeled numerically from 1 to 5
+                StartCoroutine(ShowNextSets());
+            }
         }
     }
 
-    void ReturnToOriginalFile()
+    IEnumerator ShowNextSets()
     {
+        for (int i = 1; i <= 10; i++)
+        {
+            string nextFilePath = $"Assets/{i}.txt";
+            ReadDialogueFile(nextFilePath);
+            index = 0; // Reset index for the new set
+            yield return StartCoroutine(TypeLine());
+            yield return new WaitForSeconds(2f); // Adjust the delay between sets
+        }
+
+        // After showing all sets, return to the original dialogue
+        originalDialogueShown = false;
         ReadDialogueFile(originalFilePath);
         StartCoroutine(TypeLine());
     }
