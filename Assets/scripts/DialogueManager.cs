@@ -8,84 +8,103 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI mainTextComponent;
     public string[] lines;
     public float textSpeed;
-    private int index;
-    private string originalFilePath;
-    private bool originalDialogueShown = false;
+    private bool choicesDisplayed = false;
 
     void Start()
     {
         mainTextComponent.text = string.Empty;
-        originalFilePath = "Assets/dialogue.txt";  // setting the original file path
-        ReadDialogueFile(originalFilePath);
-        StartCoroutine(TypeLine());
+        StartCoroutine(ShowDialogues());
     }
 
     void Update()
     {
         // Optionally, you can add logic here for player input or interaction if needed
+        if (choicesDisplayed && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            HandleChoice(1);
+        }
+        else if (choicesDisplayed && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            HandleChoice(2);
+        }
     }
 
-    void ReadDialogueFile(string filePath)
+    IEnumerator ShowDialogues()
+    {
+        yield return StartCoroutine(ShowDialogue("Assets/1.txt"));
+        yield return StartCoroutine(ShowDialogue("Assets/2.txt"));
+        yield return StartCoroutine(ShowDialogue("Assets/3.txt"));
+        DisplayChoices();
+    }
+
+    IEnumerator ShowDialogue(string filePath)
     {
         string[] dialogueLines = File.ReadAllLines(filePath);
 
-        // the first line of the file is the main dialogue
-        lines = dialogueLines;
-    }
-
-   IEnumerator TypeLine()
-{
-    // Clear the previous line before typing the new one
-    mainTextComponent.text = string.Empty;
-
-    foreach (char c in lines[index].ToCharArray())
-    {
-        mainTextComponent.text += c;
-        yield return new WaitForSeconds(textSpeed);
-    }
-
-    yield return new WaitForSeconds(2f);
-
-    NextLine();
-}
-
-
-    void NextLine()
-    {
-        if (index < lines.Length - 1)
+        foreach (string line in dialogueLines)
         {
-            index++;
-            mainTextComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
+            yield return TypeLine(line);
+        }
+
+       
+        if (filePath == "Assets/4.txt")
+        {
+            yield return new WaitForSeconds(1f); 
+            StartCoroutine(ShowDialogue("Assets/6.txt"));
+        }
+        if (filePath == "Assets/5.txt")
+        {
+            yield return new WaitForSeconds(1f); 
+            StartCoroutine(ShowDialogue("Assets/6.txt"));
+        }
+        // Check if the displayed dialogue is "6.txt" and show "7.txt" afterward
+        else if (filePath == "Assets/6.txt")
+        {
+            yield return new WaitForSeconds(1f); 
+            StartCoroutine(ShowDialogue("Assets/7.txt"));
         }
         else
         {
-            // Check if the original dialogue has been shown
-            if (!originalDialogueShown)
-            {
-                originalDialogueShown = true;
-                mainTextComponent.text = string.Empty; // Clear the text before showing the next set
-
-                // Show the next set of dialogues labeled numerically from 1 to 5
-                StartCoroutine(ShowNextSets());
-            }
+            yield return new WaitForSeconds(1f); 
         }
     }
 
-    IEnumerator ShowNextSets()
+    IEnumerator TypeLine(string line)
     {
-        for (int i = 1; i <= 10; i++)
+        mainTextComponent.text = string.Empty;
+
+        foreach (char c in line.ToCharArray())
         {
-            string nextFilePath = $"Assets/{i}.txt";
-            ReadDialogueFile(nextFilePath);
-            index = 0; // Reset index for the new set
-            yield return StartCoroutine(TypeLine());
-            yield return new WaitForSeconds(2f); // Adjust the delay between sets
+            mainTextComponent.text += c;
+            yield return new WaitForSeconds(textSpeed);
         }
 
-        // After showing all sets, return to the original dialogue
-        originalDialogueShown = false;
-        ReadDialogueFile(originalFilePath);
-        StartCoroutine(TypeLine());
+        yield return new WaitForSeconds(1f); // Adjust this delay if needed
+    }
+
+    void DisplayChoices()
+    {
+        mainTextComponent.text = "1. V: an accident?! what happened\n2. V: two months?!?";
+        choicesDisplayed = true;
+    }
+
+    void HandleChoice(int choice)
+    {
+        // Reset the choicesDisplayed flag after handling the choice
+        choicesDisplayed = false;
+
+        switch (choice)
+        {
+            case 1:
+                // Handle the choice for "V: an accident?! what happened"
+                StartCoroutine(ShowDialogue("Assets/4.txt")); 
+                break;
+            case 2:
+                // Handle the choice for "V: two months?!?"
+                StartCoroutine(ShowDialogue("Assets/5.txt")); 
+                break;
+            default:
+                break;
+        }
     }
 }
