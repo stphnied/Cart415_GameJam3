@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTextComponent: {fileID: 1590925849}
   nameText: {fileID: 43638038}
-  textSpeed: 0.1
+  textSpeed: 1
 --- !u!1 &1446768419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 65702495048144492, guid: e84696c84623488449be44958cd09364, type: 3}
