@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FadeOut : MonoBehaviour
 {
 
-    public float fadeDuration = 5f; // Duration of the fade in seconds
+    public float fadeDuration; // Duration of the fade in seconds
     private Image image;
     private Color originalColor;
     private float timer = 0f;
@@ -14,6 +14,7 @@ public class FadeOut : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.SetActive(true);
         image = GetComponent<Image>();
         originalColor = image.color;
     }
@@ -24,7 +25,7 @@ public class FadeOut : MonoBehaviour
         Invoke("Fade",2f);
     }
 
-     void Fade() {
+    public void Fade() {
          if (timer < fadeDuration)
         {
             // Calculate the alpha value based on the elapsed time

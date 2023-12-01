@@ -17,6 +17,9 @@ public class Newdialoguemanager : MonoBehaviour
     public GameObject button_3;
     public GameObject enditalics;
 
+    public GameObject Bestie;
+    public GameObject FadeObj;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class Newdialoguemanager : MonoBehaviour
         nameText = GameObject.Find("Canvas/Name").GetComponent<TMP_Text>();
         nameText.text = "";
         textComponent.text = string.Empty;
+
         StartDialogue();
     }
 
@@ -41,13 +45,15 @@ public class Newdialoguemanager : MonoBehaviour
             {
                 StopAllCoroutines();
                 textComponent.text = lines[locationindex]; //just get the current line and fill it out
-
             }
         }
 
     ChangeName();
+    
+    }
 
-
+    void BffAppears() {
+    
     }
 
     void ChangeName() {
@@ -55,22 +61,31 @@ public class Newdialoguemanager : MonoBehaviour
             if(locationindex==0) {nameText.text = "VANE";}
             else {nameText.text = "DOCTOR";}
         }
+
         else if (this.name == "DialogueBoxp2"||this.name == "DialogueBoxp3") {
             if(locationindex==3) {nameText.text = "VANE";}
-            else if(locationindex==8|locationindex==10) {nameText.text = "LANCE";}
-            else {nameText.text = "DOCTOR";}
+            else if(locationindex==6) {nameText.text ="";}
+            else if (locationindex==7) {
+                nameText.text = "DOCTOR";
+                FadeObj.SetActive(true);
+                FadeObj.GetComponent<FadeOut>().Fade();
+                Bestie.SetActive(true);
+                // Invoke("BffAppears",1f);
+            }
+            else if(locationindex==9|locationindex==11) {nameText.text = "LANCE";}
+        else {nameText.text = "DOCTOR";}
         }
-        // else if (this.name == "DialogueBoxp4"||this.name == "DialogueBoxp5"||this.name == "DialogueBoxp6"||this.name == "DialogueBoxp7"||this.name == "DialogueBoxp8") {
-        //     nameText.text = "LANCE";
-        // }
+
         else if(this.name == "DialogueBoxp14") {
             if(locationindex==2) {nameText.text = "VANE";}
             else {nameText.text = "LANCE";}
         }
+
         else if(this.name == "DialogueBoxp15") {
             if(locationindex==3) {nameText.text = "VANE";}
             else {nameText.text = "LANCE";}
         }
+        
         else {nameText.text = "LANCE";}
     }
 
