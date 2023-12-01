@@ -57,14 +57,14 @@ public class ChoiceManager : MonoBehaviour
         {
             DialogueBoxp2.SetActive(true);
             DialogueBoxp1.SetActive(false);
-            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "�";
+            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "?";
             GameObject.Find("choicetwo").GetComponentInChildren<TMP_Text>().text = "Who are you?";
         } else if (choiceTracker == 2)
         {
             DialogueBoxp3.SetActive(true);
             DialogueBoxp2.SetActive(false);
             DialogueBoxp1.SetActive(false);
-            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "�";
+            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "?";
             GameObject.Find("choicetwo").GetComponentInChildren<TMP_Text>().text = "Who are you?";
         } 
 

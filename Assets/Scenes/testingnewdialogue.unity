@@ -161,7 +161,7 @@ MonoBehaviour:
   - ' But hey, you can still look at the photos hopefully, that will help you remember.'
   - " Alright, I\u2019ll see you tomorrow to drive you home. I\u2019ll call up the
     people for your recovery party. You are coming, no skipping your own party. "
-  - who else is coming?
+  - Who else is coming?
   - 'Your sister, me, some friends, and some of your co-workers.  '
   textSpeed: 0.1
   locationindex: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &18805769
 MonoBehaviour:
@@ -293,6 +295,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &33973489
 MonoBehaviour:
@@ -332,6 +336,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33973486}
   m_CullTransparentMesh: 1
+--- !u!1 &41804218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3956229668843384141, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+  m_PrefabInstance: {fileID: 1700295845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &41804221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41804218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df4496dbd99e874b8f2c810f26d9a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  albedoTextures:
+  - {fileID: 2800000, guid: e36059b8d823c6443aa60470d1c4a7b8, type: 3}
+  - {fileID: 2800000, guid: af76818489846704c80a6448771f6d76, type: 3}
+  - {fileID: 2800000, guid: e2585adfb87c2da469e182438955e61e, type: 3}
+  - {fileID: 2800000, guid: 9ee2a2ba9c057074884f64d414e9f6c4, type: 3}
+  - {fileID: 2800000, guid: 8ee787df16727f84bab28efa93ff6878, type: 3}
+  currentIndex: 0
 --- !u!1 &99530115
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +426,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &99530118
 MonoBehaviour:
@@ -949,6 +979,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
   m_PrefabInstance: {fileID: 1700295845}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &163508912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163508909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b121565d9f5e644891218a44a2195b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &165299673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1149,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.64077324, b: 0.4481132, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1643,6 +1686,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &370134090
 MonoBehaviour:
@@ -1816,6 +1861,95 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -4}
   m_SizeDelta: {x: 1500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &437472690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437472691}
+  - component: {fileID: 437472694}
+  - component: {fileID: 437472693}
+  - component: {fileID: 437472692}
+  m_Layer: 5
+  m_Name: ByeDoc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &437472691
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437472690}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 53.43157, y: 24.55301, z: 37.5131}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 669388906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00024179954, y: 669.12305}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &437472692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437472690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e00cd0897a06947b7df893866c580b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
+--- !u!114 &437472693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437472690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &437472694
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437472690}
+  m_CullTransparentMesh: 1
 --- !u!1 &444746124
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2142,7 @@ MonoBehaviour:
     cat, Mio, while you were napping. '
   - " Alright, I\u2019ll see you tomorrow to drive you home. I\u2019ll call up the
     people for your recovery party. You are coming, no skipping your own party. "
-  - who else is coming?
+  - Who else is coming?
   - 'Your sister, me, some friends, and some of your co-workers.  '
   textSpeed: 0.1
   locationindex: 0
@@ -2017,6 +2151,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &446144581
 MonoBehaviour:
@@ -2119,6 +2255,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &610325601
 MonoBehaviour:
@@ -2265,6 +2403,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1580928773}
+  - {fileID: 437472691}
   - {fileID: 1718622977}
   m_Father: {fileID: 307506065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2292,19 +2431,19 @@ MonoBehaviour:
   - There was a possibility The head injury you sustained had a high risk of causing
     amnesia.
   - What do you remember?
-  - " Not much, honestly, but I do know what you're talking about. It's more if I
+  - "Not much, honestly, but I do know what you're talking about. It's more if I
     try to think about someone or an event there\u2019s nothing."
   - "Usually the motor skill memories stay intact, we\u2019ll keep you for a few
     days just to make sure everything is fine. We have already contacted your family
     and they should start visiting later today. "
   - I suggest you try to talk with your friends, family and acquaintances. The interactions
     might help you regain some memories you lost.
-  - '*knock knock*'
+  - '*Knock knock*'
   - Seems one of your most frequent visitors is here.
   - Sara is not here with you today? I thought she would be the first one to come
     once Vane woke up.
-  - "No, she said \u2026she was busy today."
-  - I see
+  - "No, she said \u2026 He was busy today."
+  - I see... I'll let you guys be for now.
   - "Hey Vane, it\u2019s been a hot minute. How was the nap?"
   textSpeed: 0.1
   locationindex: 0
@@ -2313,6 +2452,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 163508909}
+  Doctor: {fileID: 884982209}
+  FadeDoctor: {fileID: 437472690}
   FadeObj: {fileID: 1580928772}
 --- !u!114 &669388908
 MonoBehaviour:
@@ -2638,7 +2779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &751929666
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2996,10 +3137,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'an accident?! what happened '
+  m_text: An accident?! What happened?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e25b99fe30df33c49ac9e0642503998d, type: 2}
+  m_sharedMaterial: {fileID: 2425014229270142198, guid: e25b99fe30df33c49ac9e0642503998d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3023,8 +3164,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3136,6 +3277,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &879700223
 MonoBehaviour:
@@ -3175,6 +3318,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879700220}
   m_CullTransparentMesh: 1
+--- !u!1 &884982209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
+  m_PrefabInstance: {fileID: 1449415293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &884982212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884982209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b121565d9f5e644891218a44a2195b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
 --- !u!1 &945476070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3386,19 +3547,19 @@ MonoBehaviour:
   - There was a possibility The head injury you sustained had a high risk of causing
     amnesia.
   - What do you remember?
-  - " Not much, honestly, but I do know what you're talking about. It's more if I
+  - "Not much, honestly, but I do know what you're talking about. It's more if I
     try to think about someone or an event there\u2019s nothing."
   - "Usually the motor skill memories stay intact, we\u2019ll keep you for a few
     days just to make sure everything is fine. We have already contacted your family
     and they should start visiting later today. "
   - I suggest you try to talk with your friends, family and acquaintances. The interactions
     might help you regain some memories you lost.
-  - '*knock Knock*'
+  - '*Knock Knock*'
   - Seems one of your most frequent visitors is here.
   - Sara is not here with you today? I thought she would be the first one to come
     once Vane woke up.
   - "No, she said \u2026she was busy today."
-  - I see
+  - I see.  I'll let you guys be for now.
   - "Hey Vane, it\u2019s been a hot minute. How was the nap?"
   textSpeed: 0.1
   locationindex: 0
@@ -3407,6 +3568,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 163508909}
+  Doctor: {fileID: 884982209}
+  FadeDoctor: {fileID: 1645053569}
   FadeObj: {fileID: 1487683376}
 --- !u!114 &1001422965
 MonoBehaviour:
@@ -3459,6 +3622,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1487683377}
+  - {fileID: 1645053570}
   - {fileID: 433942623}
   m_Father: {fileID: 307506065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3531,6 +3695,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &1110340556
 MonoBehaviour:
@@ -3627,10 +3793,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: two months?!?
+  m_text: 2 months?!?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e25b99fe30df33c49ac9e0642503998d, type: 2}
+  m_sharedMaterial: {fileID: 2425014229270142198, guid: e25b99fe30df33c49ac9e0642503998d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3654,8 +3820,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3828,8 +3994,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How old am I?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e25b99fe30df33c49ac9e0642503998d, type: 2}
+  m_sharedMaterial: {fileID: 2425014229270142198, guid: e25b99fe30df33c49ac9e0642503998d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3853,8 +4019,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3966,6 +4132,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &1293410039
 MonoBehaviour:
@@ -4135,7 +4303,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.6392157, b: 0.44705883, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4310,7 +4478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1590925849}
   lines:
-  - "\u2026Where?"
+  - "\u2026 Where?"
   - 'Hello Vane, glad to see you are finally awake. You have been in a coma for two
     months. You were in an accident and got lucky with only a head injury but nothing
     too major that two months can not heal. '
@@ -4320,8 +4488,10 @@ MonoBehaviour:
   button_2: {fileID: 1375596373}
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
-  Bestie: {fileID: 0}
-  FadeObj: {fileID: 0}
+  Bestie: {fileID: 919132149155446097, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+  Doctor: {fileID: 884982209}
+  FadeDoctor: {fileID: 0}
+  FadeObj: {fileID: 751929665}
 --- !u!1 &1441797694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4375,8 +4545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1639813578}
   lines:
-  - wow you really lost your memory normally you would have told me off already
-  - " Anyway, I\u2019m Lance. We\u2019ve been best friends since like middle school.
+  - WOW You really lost your memory normally you would have told me off already
+  - "Anyway, I\u2019m Lance. We\u2019ve been best friends since like middle school.
     I got the call from the doctor that you woke up"
   - "I just came to check in early, since the majority of your family lives far away.
     I\u2019ll be the one to take you back when you are released."
@@ -4389,6 +4559,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &1441797697
 MonoBehaviour:
@@ -4529,52 +4701,62 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 4a678866bb12017428afc92a1557e8e3, type: 2}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 594.8243
+      value: 594.7472
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 920.68945
+      value: 920.75037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -313.2974
+      value: -312.29645
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4921433
+      value: 0.47706375
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.021033194
+      value: 0.026344366
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8694664
+      value: 0.8778309
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.037159212
+      value: -0.03360225
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 4.894
+      value: 4.826
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 120.978
+      value: 122.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 0.816
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
       propertyPath: m_Name
       value: Doctor
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4a678866bb12017428afc92a1557e8e3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884982212}
+    - targetCorrespondingSourceObject: {fileID: -2711389416098590250, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1592820870}
   m_SourcePrefab: {fileID: 100100000, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
 --- !u!1 &1479943429
 GameObject:
@@ -4760,7 +4942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e00cd0897a06947b7df893866c580b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 2
+  fadeDuration: 1
 --- !u!114 &1487683379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4849,7 +5031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e00cd0897a06947b7df893866c580b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 2
+  fadeDuration: 1
 --- !u!114 &1580928775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5156,6 +5338,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590925847}
   m_CullTransparentMesh: 1
+--- !u!1 &1592820867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2711389416098590250, guid: ace4e1e783c88b145bed482edfafb954, type: 3}
+  m_PrefabInstance: {fileID: 1449415293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1592820870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592820867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df4496dbd99e874b8f2c810f26d9a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  albedoTextures:
+  - {fileID: 2800000, guid: e36059b8d823c6443aa60470d1c4a7b8, type: 3}
+  - {fileID: 2800000, guid: af76818489846704c80a6448771f6d76, type: 3}
+  - {fileID: 2800000, guid: e2585adfb87c2da469e182438955e61e, type: 3}
+  - {fileID: 2800000, guid: 9ee2a2ba9c057074884f64d414e9f6c4, type: 3}
+  - {fileID: 2800000, guid: 8ee787df16727f84bab28efa93ff6878, type: 3}
+  currentIndex: 0
 --- !u!1 &1628118910
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,6 +5630,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639813576}
   m_CullTransparentMesh: 1
+--- !u!1 &1645053569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645053570}
+  - component: {fileID: 1645053573}
+  - component: {fileID: 1645053572}
+  - component: {fileID: 1645053571}
+  m_Layer: 5
+  m_Name: ByeDoc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1645053570
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645053569}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 53.431576, y: 24.553, z: 37.51308}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1001422967}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 669.1231}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1645053571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645053569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e00cd0897a06947b7df893866c580b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 1
+--- !u!114 &1645053572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645053569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1645053573
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645053569}
+  m_CullTransparentMesh: 1
 --- !u!1 &1683127983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,7 +5780,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.6392157, b: 0.44705883, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -5711,6 +6006,78 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 522.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 929.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -467.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8842833
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.056678254
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.4630447
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.020496864
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 6.847
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 55.333
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.937
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_Name
+      value: BFF
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 40e4c924d0322b64180b233891577cd8, type: 2}
+    - target: {fileID: 8330938450325433214, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      propertyPath: m_Name
+      value: Head
+      objectReference: {fileID: 0}
     - target: {fileID: -8191740002585371210, guid: 67256bd8b04530741a2cd6c9c599cbb8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.031573057
@@ -6951,78 +7318,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.056383133
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 522.4
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 929.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -467.1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8842833
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.056678254
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.4630447
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.020496864
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 6.847
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 55.333
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.937
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_Name
-      value: BFF
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 40e4c924d0322b64180b233891577cd8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 163508912}
+    - targetCorrespondingSourceObject: {fileID: 3956229668843384141, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 41804221}
   m_SourcePrefab: {fileID: 100100000, guid: a23af6e6a4bc662498fde6e07d80c7da, type: 3}
 --- !u!1 &1704746622
 GameObject:
@@ -7078,7 +7383,7 @@ MonoBehaviour:
   textComponent: {fileID: 145457179}
   lines:
   - ' February 26th, 2023'
-  - ' you got your accident somewhere around December 17th, 2022. '
+  - ' ou got your accident somewhere around December 17th, 2022. '
   - "You didn\u2019t ask about your family yet"
   textSpeed: 0.1
   locationindex: 0
@@ -7087,6 +7392,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &1704746625
 MonoBehaviour:
@@ -7389,6 +7696,8 @@ MonoBehaviour:
   button_3: {fileID: 1683127983}
   enditalics: {fileID: 807341522}
   Bestie: {fileID: 0}
+  Doctor: {fileID: 0}
+  FadeDoctor: {fileID: 0}
   FadeObj: {fileID: 0}
 --- !u!114 &1778646304
 MonoBehaviour:

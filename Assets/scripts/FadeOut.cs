@@ -22,7 +22,7 @@ public class FadeOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Invoke("Fade",2f);
+        // Invoke("Fade",2f);
     }
 
     public void Fade() {
