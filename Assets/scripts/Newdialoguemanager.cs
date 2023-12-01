@@ -7,6 +7,7 @@ using TMPro;
 public class Newdialoguemanager : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    TMP_Text nameText;
     public string[] lines; //put the lines of the dialogue here
     public float textSpeed;  
     public int locationindex; //keep track of where the dialogue is at 
@@ -20,6 +21,8 @@ public class Newdialoguemanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nameText = GameObject.Find("Canvas/Name").GetComponent<TMP_Text>();
+        nameText.text = "";
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -42,9 +45,34 @@ public class Newdialoguemanager : MonoBehaviour
             }
         }
 
-       
+    ChangeName();
+
+
     }
 
+    void ChangeName() {
+        if (this.name == "DialogueBoxp1") {
+            if(locationindex==0) {nameText.text = "VANE";}
+            else {nameText.text = "DOCTOR";}
+        }
+        else if (this.name == "DialogueBoxp2"||this.name == "DialogueBoxp3") {
+            if(locationindex==3) {nameText.text = "VANE";}
+            else if(locationindex==8|locationindex==10) {nameText.text = "LANCE";}
+            else {nameText.text = "DOCTOR";}
+        }
+        // else if (this.name == "DialogueBoxp4"||this.name == "DialogueBoxp5"||this.name == "DialogueBoxp6"||this.name == "DialogueBoxp7"||this.name == "DialogueBoxp8") {
+        //     nameText.text = "LANCE";
+        // }
+        else if(this.name == "DialogueBoxp14") {
+            if(locationindex==2) {nameText.text = "VANE";}
+            else {nameText.text = "LANCE";}
+        }
+        else if(this.name == "DialogueBoxp15") {
+            if(locationindex==3) {nameText.text = "VANE";}
+            else {nameText.text = "LANCE";}
+        }
+        else {nameText.text = "LANCE";}
+    }
 
     void StartDialogue()
     {

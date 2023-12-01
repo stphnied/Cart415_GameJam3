@@ -7,6 +7,7 @@ using TMPro;
 public class Endialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    TMP_Text nameText;
     public string[] lines; //put the lines of the dialogue here
     public float textSpeed;  
     public int locationindex; //keep track of where the dialogue is at 
@@ -19,6 +20,7 @@ public class Endialogue : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
+        nameText = GameObject.Find("Canvas/Name").GetComponent<TMP_Text>();
         StartDialogue();
     }
 
@@ -40,9 +42,21 @@ public class Endialogue : MonoBehaviour
             }
         }
 
-       
+    ChangeName();
     }
 
+    void ChangeName() {
+        if(this.name == "DialogueBoxenditalics") {
+            nameText.text = "VANE";
+        }
+        else if(this.name == "DialogueBoxend") {
+            if(locationindex==0||locationindex==2||locationindex==3||locationindex==4||locationindex==6) {nameText.text = "NURSE";}
+            else if(locationindex==1||locationindex==5){nameText.text = "LANCE";}
+        }
+        else if(this.name =="DialogueBoxenditalicsend") {
+            nameText.text = "VANE";
+        }
+    }
 
     void StartDialogue()
     {

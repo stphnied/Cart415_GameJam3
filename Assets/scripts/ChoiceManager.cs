@@ -12,11 +12,11 @@ public class ChoiceManager : MonoBehaviour
      * 1- V: an accident?! what happened 
      * 2- V: two months?!?
      * 
-     * 3- V: …
+     * 3- V: ï¿½
      * 4- V: Who are you?
      * 
      * 5- V: What do you know about the accident?
-     * 6- V: How do I know you’re not lying about who you are?
+     * 6- V: How do I know youï¿½re not lying about who you are?
      * 7- V: How old am I?
      * 
      * 8- V: Who is Sara?
@@ -57,14 +57,14 @@ public class ChoiceManager : MonoBehaviour
         {
             DialogueBoxp2.SetActive(true);
             DialogueBoxp1.SetActive(false);
-            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "…";
+            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "ï¿½";
             GameObject.Find("choicetwo").GetComponentInChildren<TMP_Text>().text = "Who are you?";
         } else if (choiceTracker == 2)
         {
             DialogueBoxp3.SetActive(true);
             DialogueBoxp2.SetActive(false);
             DialogueBoxp1.SetActive(false);
-            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "…";
+            GameObject.Find("choiceone").GetComponentInChildren<TMP_Text>().text = "ï¿½";
             GameObject.Find("choicetwo").GetComponentInChildren<TMP_Text>().text = "Who are you?";
         } 
 

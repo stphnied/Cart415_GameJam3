@@ -94,7 +94,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 0
+    overrideState: 1
     value: 1
   externalLut:
     overrideState: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 1
+    value: 2
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     overrideState: 1
     value: 20.43
   tint:
-    overrideState: 1
+    overrideState: 0
     value: 2.64
   colorFilter:
     overrideState: 0
@@ -181,13 +181,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9011053, y: 1, z: 0.98558426, w: 0}
+    value: {x: 0.95212257, y: 0.9400353, z: 1, w: 0.14362659}
   gamma:
     overrideState: 1
-    value: {x: 0.9550263, y: 0.9244367, z: 1, w: 0}
+    value: {x: 0.9352664, y: 0.9397655, z: 1, w: -0.07181328}
   gain:
     overrideState: 1
-    value: {x: 0.9048998, y: 0.89912444, z: 1, w: 0}
+    value: {x: 0.9496065, y: 1, z: 0.90275306, w: 0.03590664}
   masterCurve:
     overrideState: 0
     value:
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
