@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     // Text component for displaying dialogue
     public TextMeshProUGUI mainTextComponent;
+    public TextMeshProUGUI nameText;
 
     // Speed at which the text is typed on the screen
     public float textSpeed;
@@ -17,9 +18,11 @@ public class DialogueManager : MonoBehaviour
     // Variable to store the current dialogue file path
     private string currentDialogue;
 
+
     void Start()
     {
         mainTextComponent.text = string.Empty;
+        nameText.text = string.Empty;
         StartCoroutine(ShowDialogues());
     }
 
@@ -91,6 +94,18 @@ public class DialogueManager : MonoBehaviour
             yield return TypeLine(line);
         }
 
+        // Test for Names
+        if (filePath == "Assets/1.txt") {
+            nameText.text = "VANE";
+        }
+        if (filePath == "Assets/2.txt") {
+            nameText.text = "DOCTOR";
+        }
+        if (filePath == "Assets/3.txt") {
+            nameText.text = "";
+        }
+        
+
         // Check and show additional dialogues based on the current file
         if (filePath == "Assets/4.txt" || filePath == "Assets/5.txt")
         {
@@ -143,6 +158,8 @@ public class DialogueManager : MonoBehaviour
         // Display initial set of choices
         mainTextComponent.text = "1. V: an accident?! what happened\n2. V: two months?!?";
         choicesDisplayed = true;
+
+        nameText.text = "VANE";
     }
 
     void DisplayChoicesAfterSeven()
@@ -150,6 +167,8 @@ public class DialogueManager : MonoBehaviour
         // Display choices after showing "7.txt"
         mainTextComponent.text = "1. V: ...\n2. V: Who are you?";
         choicesDisplayed = true;
+
+        
     }
 
     void DisplayChoicesAfterTen()
