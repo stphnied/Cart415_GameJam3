@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,7 +10,6 @@ public class Newdialoguemanager : MonoBehaviour
     public string[] lines; //put the lines of the dialogue here
     public float textSpeed;  
     public int locationindex; //keep track of where the dialogue is at 
-    
 
     public GameObject button_1;
     public GameObject button_2;
@@ -25,6 +23,8 @@ public class Newdialoguemanager : MonoBehaviour
     public GameObject FadeDoctor;
     public GameObject FadeObj;
 
+    private bool allowClick = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,26 +33,33 @@ public class Newdialoguemanager : MonoBehaviour
         nameText.text = "";
         textComponent.text = string.Empty;
 
+        StartCoroutine(InitialDelay());
+    }
+
+    IEnumerator InitialDelay()
+    {
+        yield return new WaitForSeconds(8f); // Adjust this value for the delay in seconds
+        allowClick = true;
         StartDialogue();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (allowClick && Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[locationindex])
             {
-                NextLine(); //display the next line
+                NextLine(); // display the next line
             }
             else
             {
                 StopAllCoroutines();
-                textComponent.text = lines[locationindex]; //just get the current line and fill it out
+                textComponent.text = lines[locationindex]; // just get the current line and fill it out
             }
         }
 
-    ChangeName();
+        ChangeName();
     }
 
     void ChangeName() {
