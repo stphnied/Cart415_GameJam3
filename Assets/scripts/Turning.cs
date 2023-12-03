@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,20 +20,25 @@ public class Turning : MonoBehaviour
             float newRotationY = transform.eulerAngles.y + rotationSpeed * Time.deltaTime;
 
             // Apply the new rotation to the GameObject
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, newRotationY, transform.eulerAngles.z);
+            // transform.eulerAngles = new Vector3(transform.eulerAngles.x, newRotationY, transform.eulerAngles.z);
         }
         targetRotationY = 150f;
+        // Quaternion targetRotation = Quaternion.Euler(0f, targetRotationY, 0f);
+
+        // Apply the rotation to the GameObject
+        // transform.rotation = targetRotation;
         RotateTowardsTargetRotation();
     }
 
 
     public void LancetoDoc() {
-        targetRotationY = 10f;
-        RotateTowardsTargetRotation();
+        targetRotationY = 25f;
+        // RotateTowardsTargetRotation();
     }
 
     public void LancetoMC() {
         targetRotationY = 55f;
+        
         RotateTowardsTargetRotation();
     }
 

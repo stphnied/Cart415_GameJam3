@@ -9,7 +9,7 @@ public class FadeOut : MonoBehaviour
     public float fadeDuration; // Duration of the fade in seconds
     private Image image;
     private Color originalColor;
-    private float timer = 0f;
+    public float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +37,20 @@ public class FadeOut : MonoBehaviour
             // Update the timer
             timer += Time.deltaTime;
         }
-    }       
+    }    
+
+    public void FadeEnd() {
+        if (timer < fadeDuration)
+{
+        // Calculate the alpha value based on the elapsed time (reversed fade)
+        float alpha = Mathf.Lerp(0f, 1f, timer / fadeDuration);
+
+        // Apply the new color with faded alpha
+        image.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+        // Update the timer
+        timer += Time.deltaTime;
+    }
+    }   
 }
 

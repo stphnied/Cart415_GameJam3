@@ -24,6 +24,8 @@ public class Newdialoguemanager : MonoBehaviour
     GameObject BestieMouth;
     public GameObject FadeDoctor;
     public GameObject FadeObj;
+    private bool stop= false;
+    private bool gameStart = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,7 @@ public class Newdialoguemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) &&gameStart)
         {
             if (textComponent.text == lines[locationindex])
             {
@@ -53,13 +55,16 @@ public class Newdialoguemanager : MonoBehaviour
         }
 
     ChangeName();
+    Debug.Log(gameStart);
     }
 
     void ChangeName() {
         // Dialogue 1
         if (this.name == "DialogueBoxp1") {
             FadeObj.GetComponent<FadeOut>().Fade();
-
+            if (FadeObj.GetComponent<FadeOut>().timer >=2) {
+                gameStart = true;
+            }
             if(locationindex==0) {nameText.text = "VANE";}
             else {
                 nameText.text = "DOCTOR";
@@ -69,30 +74,45 @@ public class Newdialoguemanager : MonoBehaviour
 
         // Dialogue 2||3
         else if (this.name == "DialogueBoxp2"||this.name == "DialogueBoxp3") {
-            if(locationindex==3) {nameText.text = "VANE";}
-            else if(locationindex==6) {nameText.text ="";}
+            gameStart = true;
+            if(locationindex==2) {
+                nameText.text ="DOCTOR";
+                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
+                }
+            else if(locationindex==3) {
+                nameText.text = "VANE";
+                }
+            else if(locationindex==6) {nameText.text ="";
+            DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);}
 
             // Lance appears
-            if (locationindex==7) {
+            else if (locationindex==7) {
                 nameText.text = "DOCTOR";
                 FadeObj.SetActive(true);
                 FadeObj.GetComponent<FadeOut>().Fade();
                 Bestie.SetActive(true);
                 BestieMouth = GameObject.Find("BFF/Head/Mouth_01");
-                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(3);
+                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
             }
             else if(locationindex==8) {
                 nameText.text = "DOCTOR";
                 Doctor.GetComponent<Turning>().LanceArrived();
+                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(0);
             }
             else if(locationindex==9) {
                 nameText.text = "LANCE";
-                Bestie.GetComponent<Turning>().LancetoDoc();
+                // Bestie.GetComponent<Turning>().LancetoDoc();
                 BestieMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
+                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
+                if(!stop) {
+                    Bestie.GetComponent<Animator>().SetTrigger("Test");
+                    stop = true;
+                }
                 }
 
             // Doc leaves
             else if(locationindex==11) {
+                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(3);
                 FadeDoctor.SetActive(true);
                 FadeDoctor.GetComponent<FadeOut>().Fade();
                 Doctor.SetActive(false);
@@ -103,11 +123,12 @@ public class Newdialoguemanager : MonoBehaviour
                 }
             else {
                 nameText.text = "DOCTOR";
-                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
+                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(0);
             }
         }
         // Dialogue 4||5
         else if(this.name == "DialogueBoxp4"||this.name == "DialogueBoxp5") {
+            gameStart = true;
             BestieMouth = GameObject.Find("BFF/Head/Mouth_01");
             nameText.text = "LANCE";
             if(locationindex==0) {
@@ -122,6 +143,7 @@ public class Newdialoguemanager : MonoBehaviour
         }
         // Dialogue 6||7||8
         else if (this.name == "DialogueBoxp6"||this.name == "DialogueBoxp7"||this.name == "DialogueBoxp8") {
+            gameStart = true;
             BestieMouth = GameObject.Find("BFF/Head/Mouth_01");
             nameText.text = "LANCE";
 
@@ -133,6 +155,7 @@ public class Newdialoguemanager : MonoBehaviour
 
         // Dialogue 9 --> Sarah's question
         else if(this.name == "DialogueBoxp9") {
+            gameStart = true;
             BestieMouth = GameObject.Find("BFF/Head/Mouth_01");
             nameText.text = "LANCE";
 
@@ -149,6 +172,7 @@ public class Newdialoguemanager : MonoBehaviour
         }
 
         else if(this.name == "DialogueBoxp10"||this.name == "DialogueBoxp11"||this.name == "DialogueBoxp12"||this.name == "DialogueBoxp13") {
+            gameStart = true;
             BestieMouth = GameObject.Find("BFF/Head/Mouth_01");
             nameText.text = "LANCE";
             BestieMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(0);
@@ -160,6 +184,7 @@ public class Newdialoguemanager : MonoBehaviour
 
         // Dialogue 14
         else if(this.name == "DialogueBoxp14") {
+            gameStart = true;
             if(locationindex==2) {nameText.text = "VANE";}
             else {
                 nameText.text = "LANCE";
@@ -169,6 +194,7 @@ public class Newdialoguemanager : MonoBehaviour
         }
         // Dialogue 15
         else if(this.name == "DialogueBoxp15") {
+            gameStart = true;
             if(locationindex==3) {nameText.text = "VANE";}
             else {
                 nameText.text = "LANCE";
@@ -178,7 +204,7 @@ public class Newdialoguemanager : MonoBehaviour
         }
         
         // The rest
-        else {nameText.text = "LANCE";}
+        else {nameText.text = "LANCE";gameStart = true;}
     }
 
 
