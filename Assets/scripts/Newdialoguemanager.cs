@@ -18,7 +18,7 @@ public class Newdialoguemanager : MonoBehaviour
 
     public GameObject Bestie;
     public GameObject Doctor;
-    GameObject DoctorMouth;
+    GameObject DoctorMouth; 
     GameObject BestieMouth;
     public GameObject FadeDoctor;
     public GameObject FadeObj;

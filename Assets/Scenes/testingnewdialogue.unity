@@ -747,6 +747,7 @@ GameObject:
   - component: {fileID: 150727768}
   - component: {fileID: 150727767}
   - component: {fileID: 150727769}
+  - component: {fileID: 150727770}
   m_Layer: 5
   m_Name: DialogueBoxend
   m_TagString: Untagged
@@ -840,6 +841,19 @@ MonoBehaviour:
   textSpeed: 0.1
   locationindex: 0
   nextdialogue: {fileID: 165299673}
+  canvasGroup: {fileID: 150727770}
+--- !u!225 &150727770
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150727764}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &161257540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +1018,7 @@ GameObject:
   - component: {fileID: 165299677}
   - component: {fileID: 165299676}
   - component: {fileID: 165299678}
-  - component: {fileID: 165299679}
+  - component: {fileID: 165299680}
   m_Layer: 5
   m_Name: DialogueBoxenditalicsend
   m_TagString: Untagged
@@ -1089,19 +1103,19 @@ MonoBehaviour:
   textSpeed: 0.1
   locationindex: 0
   nextdialogue: {fileID: 0}
---- !u!114 &165299679
-MonoBehaviour:
+  canvasGroup: {fileID: 165299680}
+--- !u!225 &165299680
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165299673}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e00cd0897a06947b7df893866c580b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 5
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &198328368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,6 +2972,7 @@ GameObject:
   - component: {fileID: 807341526}
   - component: {fileID: 807341525}
   - component: {fileID: 807341527}
+  - component: {fileID: 807341528}
   m_Layer: 5
   m_Name: DialogueBoxenditalics
   m_TagString: Untagged
@@ -3042,6 +3057,19 @@ MonoBehaviour:
   textSpeed: 0.1
   locationindex: 0
   nextdialogue: {fileID: 150727764}
+  canvasGroup: {fileID: 807341528}
+--- !u!225 &807341528
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807341522}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &836935325
 GameObject:
   m_ObjectHideFlags: 0
