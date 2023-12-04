@@ -724,6 +724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1653979224}
   - component: {fileID: 1653979223}
+  - component: {fileID: 1653979225}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -743,7 +744,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 65644dddc5f1c4140a52cbc421acf204, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.506
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -842,6 +843,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1653979225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653979222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12719db3f9550a14993c35a73ae1ae87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: a81ccfa15441b6b41a577b76484be983, type: 3}
 --- !u!1 &1803371043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,6 +1077,18 @@ MonoBehaviour:
       - m_Target: {fileID: 112987397}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1653979225}
+        m_TargetAssemblyTypeName: PlaySounds, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

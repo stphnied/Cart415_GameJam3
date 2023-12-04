@@ -49,7 +49,18 @@ public class ChoiceManager : MonoBehaviour
     public GameObject DialogueBoxp13;
     public GameObject DialogueBoxp14;
     public GameObject DialogueBoxp15;
+    GameObject Sound;
 
+    public void Start() {
+    Sound = GameObject.Find("Sound");
+    }
+
+    public void Update()
+    {
+        if(button_1.activeSelf||button_2.activeSelf||button_3.activeSelf) {
+            Sound.GetComponent<PlaySounds>().StopSound();   
+        }
+    }
     public void displayManager()
     {
         //baiscally for each one, display the right text box and hide the others, it also preps the text for the next options

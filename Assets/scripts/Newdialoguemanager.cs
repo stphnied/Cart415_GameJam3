@@ -27,11 +27,14 @@ public class Newdialoguemanager : MonoBehaviour
     private bool stop= false;
     private bool gameStart = false;
 
+    GameObject Sound;
+
     // Start is called before the first frame update
     void Start()
     {
         nameText = GameObject.Find("Canvas/Name").GetComponent<TMP_Text>();
         DoctorMouth = GameObject.Find("Doctor/Head/Mouth_01");
+        Sound = GameObject.Find("Sound");
         nameText.text = "";
         textComponent.text = string.Empty;
 
@@ -46,16 +49,24 @@ public class Newdialoguemanager : MonoBehaviour
             if (textComponent.text == lines[locationindex])
             {
                 NextLine(); //display the next line
+                Sound.GetComponent<PlaySounds>().TypeWritter();
+                Sound.GetComponent<PlaySounds>().ClickSound();
             }
             else
             {
                 StopAllCoroutines();
                 textComponent.text = lines[locationindex]; //just get the current line and fill it out
+                Sound.GetComponent<PlaySounds>().StopSound();
+            }
+
+            if(this.name == "DialogueBoxp2" ||this.name == "DialogueBoxp3") {
+                if(locationindex==6 || locationindex==10) {
+                Sound.GetComponent<PlaySounds>().DoorOpen();
+                }
             }
         }
 
     ChangeName();
-    Debug.Log(gameStart);
     }
 
     void ChangeName() {
@@ -64,8 +75,10 @@ public class Newdialoguemanager : MonoBehaviour
             FadeObj.GetComponent<FadeOut>().Fade();
             if (FadeObj.GetComponent<FadeOut>().timer >=2) {
                 gameStart = true;
+                FadeObj.SetActive(false);
             }
             if(locationindex==0) {nameText.text = "VANE";}
+
             else {
                 nameText.text = "DOCTOR";
                 DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(3);
@@ -82,8 +95,10 @@ public class Newdialoguemanager : MonoBehaviour
             else if(locationindex==3) {
                 nameText.text = "VANE";
                 }
-            else if(locationindex==6) {nameText.text ="";
-            DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);}
+            else if(locationindex==6) {
+                nameText.text ="";
+                DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
+            }
 
             // Lance appears
             else if (locationindex==7) {
@@ -101,14 +116,13 @@ public class Newdialoguemanager : MonoBehaviour
             }
             else if(locationindex==9) {
                 nameText.text = "LANCE";
-                // Bestie.GetComponent<Turning>().LancetoDoc();
                 BestieMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
                 DoctorMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(4);
                 if(!stop) {
                     Bestie.GetComponent<Animator>().SetTrigger("Test");
                     stop = true;
                 }
-                }
+            }
 
             // Doc leaves
             else if(locationindex==11) {
@@ -211,7 +225,8 @@ public class Newdialoguemanager : MonoBehaviour
 
     void StartDialogue()
     {
-    locationindex = 0; //start he dialogue at 0
+        Sound.GetComponent<PlaySounds>().TypeWritter();  
+        locationindex = 0; //start he dialogue at 0
         StartCoroutine(TypeLine());
     }
 
@@ -233,10 +248,12 @@ public class Newdialoguemanager : MonoBehaviour
         { locationindex++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
+            
         }
 
-        else //if nothing else to say close hte dialogue box
+        else //if nothing else to say close the dialogue box
         {
+            Sound.GetComponent<PlaySounds>().StopSound();
             Debug.Log(ChoiceManager.choiceTracker);
             if (ChoiceManager.choiceTracker < 13) // if its not done with the 13 dialogue boxes it continues 
             { 
@@ -252,7 +269,6 @@ public class Newdialoguemanager : MonoBehaviour
             {
                 enditalics.SetActive(true);
                 gameObject.SetActive(false);
-
             }
         }
     }
