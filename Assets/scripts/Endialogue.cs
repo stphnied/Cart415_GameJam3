@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Endialogue: MonoBehaviour {
     public TextMeshProUGUI textComponent;
@@ -66,22 +67,23 @@ public class Endialogue: MonoBehaviour {
                 oldMC.SetActive(false);
                 NewMC.SetActive(true);
 
-            } else if (locationindex == 2) {
+            }
+            else if (locationindex == 1) {
                 FadeObj.SetActive(true);
-                FadeObj.GetComponent < FadeOut > ().Fade();
+                FadeObj.GetComponent < FadeOut >().Fade();
                 Nurse.SetActive(true);
                 NurseMouth = GameObject.Find("Nurse/Head/Mouth_01");
                 NurseMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(0);
             }
             // NURSE
-            else if (locationindex == 1 || locationindex == 3 || locationindex == 4 ||locationindex == 5 || locationindex == 7) {
+            else if (locationindex == 3 || locationindex == 4 ||locationindex == 5 || locationindex == 7) {
+                Nurse.SetActive(true);
                 nameText.text = "NURSE";
                 NurseMouth = GameObject.Find("Nurse/Head/Mouth_01");
                 NurseMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(0);
             }
             // VANE
-            else if (
-                locationindex == 2 || locationindex == 6) {
+            else if (locationindex == 2||locationindex == 6) {
                 nameText.text = "VANE";
                 NurseMouth = GameObject.Find("Nurse/Head/Mouth_01");
                 NurseMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(3);
@@ -93,9 +95,14 @@ public class Endialogue: MonoBehaviour {
             if (locationindex == 1) {
             FadeObj.SetActive(true);
             FadeObj.GetComponent < FadeOut > ().FadeEnd();
+            Invoke("endScene",2.5f);
             }
 
         }
+    }
+
+    public void endScene() {
+        SceneManager.LoadScene("EndScreen");
     }
 
     void StartDialogue() {

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testingnewdialogue.unity
     guid: 51ddc1ea94598fa48a594c853d9a4fd3
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: aa1c8156638ced24e9dcccb253477c6c
   m_configObjects: {}
