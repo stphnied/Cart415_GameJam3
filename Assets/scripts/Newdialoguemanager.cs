@@ -58,12 +58,6 @@ public class Newdialoguemanager : MonoBehaviour
                 textComponent.text = lines[locationindex]; //just get the current line and fill it out
                 Sound.GetComponent<PlaySounds>().StopSound();
             }
-
-            if(this.name == "DialogueBoxp2" ||this.name == "DialogueBoxp3") {
-                if(locationindex==6 || locationindex==10) {
-                Sound.GetComponent<PlaySounds>().DoorOpen();
-                }
-            }
         }
 
     ChangeName();
@@ -73,7 +67,7 @@ public class Newdialoguemanager : MonoBehaviour
         // Dialogue 1
         if (this.name == "DialogueBoxp1") {
             FadeObj.GetComponent<FadeOut>().Fade();
-            if (FadeObj.GetComponent<FadeOut>().timer >=2) {
+            if (FadeObj.GetComponent<FadeOut>().timer >=2.5f) {
                 gameStart = true;
                 FadeObj.SetActive(false);
             }
@@ -220,8 +214,6 @@ public class Newdialoguemanager : MonoBehaviour
         // The rest
         else {nameText.text = "LANCE";gameStart = true;}
     }
-
-
 
     void StartDialogue()
     {

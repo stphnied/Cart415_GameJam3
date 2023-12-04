@@ -20,12 +20,14 @@ public class Endialogue: MonoBehaviour {
     public GameObject oldCamera;
     public GameObject newCamera;
     GameObject NurseMouth;
+    GameObject Sound;
 
 
     // Start is called before the first frame update
     void Start() {
         textComponent.text = string.Empty;
-        nameText = GameObject.Find("Canvas/Name").GetComponent < TMP_Text > ();
+        nameText = GameObject.Find("Canvas/Name").GetComponent<TMP_Text>();
+        Sound = GameObject.Find("Sound");
         StartDialogue();
     }
 
@@ -35,10 +37,12 @@ public class Endialogue: MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             if (textComponent.text == lines[locationindex]) {
                 NextLine(); //display the next line
+                Sound.GetComponent<PlaySounds>().TypeWritter();
+                Sound.GetComponent<PlaySounds>().ClickSound();
             } else {
                 StopAllCoroutines();
                 textComponent.text = lines[locationindex]; //just get the current line and fill it out
-
+                Sound.GetComponent<PlaySounds>().StopSound();
             }
         }
 
@@ -62,7 +66,7 @@ public class Endialogue: MonoBehaviour {
                 oldMC.SetActive(false);
                 NewMC.SetActive(true);
 
-            } else if (locationindex == 1) {
+            } else if (locationindex == 2) {
                 FadeObj.SetActive(true);
                 FadeObj.GetComponent < FadeOut > ().Fade();
                 Nurse.SetActive(true);
@@ -70,7 +74,7 @@ public class Endialogue: MonoBehaviour {
                 NurseMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(0);
             }
             // NURSE
-            else if (locationindex == 3 || locationindex == 4 || locationindex == 5 || locationindex == 7) {
+            else if (locationindex == 1 || locationindex == 3 || locationindex == 4 ||locationindex == 5 || locationindex == 7) {
                 nameText.text = "NURSE";
                 NurseMouth = GameObject.Find("Nurse/Head/Mouth_01");
                 NurseMouth.GetComponent<ChangeMouth>().SwitchTextureExternally(0);
