@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        Application.LoadLevel("testingnewdialogue");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
